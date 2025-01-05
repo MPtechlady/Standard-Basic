@@ -60,7 +60,7 @@
                 }
                 qrCodeDiv.appendChild(canvas);
             });
-        }
+        } 
     </script>
 </body>
 </html>
