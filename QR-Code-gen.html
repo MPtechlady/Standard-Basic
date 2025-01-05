@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Generator with Constants</title>
+    <title>QR Code Generator with Multiple Inputs</title>
 </head>
 <body>
-    <h1>QR Code Generator with Multiple Inputs and Constants</h1>
+    <h1>QR Code Generator with Multiple Inputs</h1>
 
     <label for="input1">Input 1:</label>
     <input type="text" id="input1" placeholder="Enter first input"><br><br>
@@ -27,20 +27,8 @@
             const input2 = document.getElementById('input2').value;
             const input3 = document.getElementById('input3').value;
 
-            // Constants to include
-            const constant1 = "Company Name: THILEO";
-            const constant2 = "Support Email: support@thileo.com";
-            const constant3 = "Website: https://thileo.com";
-
-            // Combine constants and user inputs into a single string
-            const data = `
-                ${constant1}
-                ${constant2}
-                ${constant3}
-                Input 1: ${input1}
-                Input 2: ${input2}
-                Input 3: ${input3}
-            `.trim(); // Trims any leading/trailing spaces
+            // Combine inputs into a single string
+            const data = `Input 1: ${input1}\nInput 2: ${input2}\nInput 3: ${input3}`;
             
             const qrCodeDiv = document.getElementById('qrCode');
             
@@ -64,3 +52,4 @@
     </script>
 </body>
 </html>
+
