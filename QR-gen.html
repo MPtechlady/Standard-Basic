@@ -15,9 +15,9 @@
     <input type="text" id="input2" placeholder="Enter second input"><br><br>
 
     <label for="dropdownMenu">Choose an Option:</label>
-        <select id="dropdownMenu">
-            <!-- Options will be populated dynamically -->
-        </select><br><br>
+    <select id="dropdownMenu">
+        <!-- Options will be populated dynamically -->
+    </select><br><br>
 
     <label for="input3">Input 3:</label>
     <input type="text" id="input3" placeholder="Enter third input"><br><br>
@@ -44,9 +44,9 @@
         function generateQRCode() {
             const input1 = document.getElementById('input1').value;
             const input2 = document.getElementById('input2').value;
-            const input3 = document.getElementById('input3').value;
             const selectedOption = document.getElementById("dropdownMenu").value;
-
+            const input3 = document.getElementById('input3').value;
+            
             // Constants to include
             const constant1 = "Company Name: THILEO";
             const constant2 = "Support Email: info@thileo.com";
@@ -59,8 +59,8 @@
                 ${constant3}
                 Input 1: ${input1}
                 Input 2: ${input2}
-                Input 3: ${input3}
                 Selected Option: ${selectedOption}
+                Input 3: ${input3}
             `.trim(); // Trims any leading/trailing spaces
             
             const qrCodeDiv = document.getElementById('qrCode');
