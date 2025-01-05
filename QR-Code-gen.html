@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator with Constants</title>
+</head>
+<body>
+    <h1>QR Code Generator with Multiple Inputs and Constants</h1>
+
+    <label for="input1">Input 1:</label>
+    <input type="text" id="input1" placeholder="Enter first input"><br><br>
+
+    <label for="input2">Input 2:</label>
+    <input type="text" id="input2" placeholder="Enter second input"><br><br>
+
+    <label for="input3">Input 3:</label>
+    <input type="text" id="input3" placeholder="Enter third input"><br><br>
+
+    <button onclick="generateQRCode()">Generate QR Code</button>
+    <div id="qrCode"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script>
+        function generateQRCode() {
+            const input1 = document.getElementById('input1').value;
+            const input2 = document.getElementById('input2').value;
+            const input3 = document.getElementById('input3').value;
+
+            // Constants to include
+            const constant1 = "Company Name: THILEO";
+            const constant2 = "Support Email: support@thileo.com";
+            const constant3 = "Website: https://thileo.com";
+
+            // Combine constants and user inputs into a single string
+            const data = `
+                ${constant1}
+                ${constant2}
+                ${constant3}
+                Input 1: ${input1}
+                Input 2: ${input2}
+                Input 3: ${input3}
+            `.trim(); // Trims any leading/trailing spaces
+            
+            const qrCodeDiv = document.getElementById('qrCode');
+            
+            // Clear any existing QR code
+            qrCodeDiv.innerHTML = '';
+
+            if (!input1 && !input2 && !input3) {
+                alert("Please enter at least one input to generate the QR Code!");
+                return;
+            }
+
+            // Generate QR code
+            QRCode.toCanvas(data, { width: 250 }, function (err, canvas) {
+                if (err) {
+                    console.error("Error generating QR code:", err);
+                    return;
+                }
+                qrCodeDiv.appendChild(canvas);
+            });
+        }
+    </script>
+</body>
+</html>
